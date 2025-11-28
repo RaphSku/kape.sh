@@ -1,0 +1,18 @@
+---
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  profile: default
+  components:
+    pilot:
+      enabled: true
+    ingressGateways:
+    - enabled: true
+      name: istio-ingressgateway
+      k8s:
+        nodeSelector:
+          istio-gateway: ingress
+        tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
