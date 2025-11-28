@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -e
-set -o pipefail
 
 APP_NAME="kape"
 REPO_OWNER="RaphSku"
